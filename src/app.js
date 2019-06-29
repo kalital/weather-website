@@ -6,7 +6,7 @@ const hbs = require('hbs')
 
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 //Define paths for Express config
 const publicDir = path.join(__dirname, '../public')
@@ -34,7 +34,7 @@ app.get('', (req, res) =>{res.render('index', {
  }))
 
  app.get('/help', (req, res) => res.render('help', {
-     message: 'Soon will contact you do not worry',
+     message: 'Click the link in the footer to contact me',
      title: 'Help',
      name: 'Khalid Issa'
  }))
@@ -93,4 +93,4 @@ app.get('*', (req, res) =>{
     })
 })
 
-app.listen(port, () => console.log(`Example app listening on port port!`))
+app.listen(port, () => console.log(`Example app listening on port ${port}`))
